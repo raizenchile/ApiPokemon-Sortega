@@ -2,6 +2,14 @@
 
 Este proyecto implementa una API RESTful para una Pokédex utilizando Node.js y Express.js. La aplicación permite gestionar entrenadores y Pokémon, con autenticación basada en JWT (JSON Web Tokens). 
 
+***Tecnologías utilizadas***
+* Nodejs
+* Express.js
+* JWT (Json Web Tokens)
+* bcrypt (encriptación de contraseñas)
+* body-parser (Middleware de Express para analizar el cuerpo de las solicitudes HTTP entrantes)
+* doteenv (Gestionar variables de entorno)
+
 **Características Principales**
 
 ***Autenticación:***
@@ -34,7 +42,7 @@ Este proyecto implementa una API RESTful para una Pokédex utilizando Node.js y 
 * PUT /pokemon/:id: Actualizar un Pokémon (solo el propietario).
 * DELETE /pokemon/:id: Eliminar un Pokémon (solo el propietario).
 
----█
+_______________________________________________________________________________________________
 
 **Instalación y Ejecución**
 
@@ -57,3 +65,38 @@ Este proyecto implementa una API RESTful para una Pokédex utilizando Node.js y 
     npm start
 
 5. La API estará disponible en http://localhost:3000.
+
+_______________________________________________________________________________________________
+
+**Uso con Postman**
+
+***Autenticación***
+
+1. Registro
+    * Endpoint: POST /auth/register
+    * Body (JSON):
+        {
+            "username": "usuarioTrainer",
+            "password": "passwordTrainer",
+            "role": "trainer"
+        }
+
+2. Login
+    * Endpoint: POST /auth/login
+    * Body (JSON):
+        {
+            "username": "usuarioTrainer",
+            "password": "passwordTrainer"
+        }   
+
+    ***Respuesta:***
+        {
+            "message": "Inicio de sesión exitoso.",
+            "token": "<jwt-token>"
+        }
+
+**Protección de Rutas**
+Para acceder a las rutas protegidas (creación, actualización o eliminación de Pokémon), incluir el tolken JWT en los encabezados de la solciitud:
+***Authorization: Bearer <token-jwt>
+
+**Quiero agradecer al profesor Ricardo Castillo y sus clases, que sirvieron como base para este proyecto. También tomé referencias de la documentación oficial de las tecnologías utilizadas, grabaciones de clases anteriores, videos y de la ayuda proporcionada por ChatGPT para resolver dudas y mejorar el desarrollo.**
