@@ -1,2 +1,2 @@
 # ApiPokemon-Sortega
-Tarea a realizar para el Diplomado en IPSS
+API RESTful para una Pokédex con Express.js y JWT
